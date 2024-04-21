@@ -53,8 +53,8 @@ namespace todo_API.Controllers
 
         }
 
-        [HttpDelete("DeleteTask")]
-        public ActionResult DeleteTask([FromQuery] int IdTask)
+        [HttpDelete("DeleteTask/{IdTask}")]
+        public ActionResult DeleteTask([FromRoute] int IdTask)
         {
             try
             {
@@ -65,8 +65,10 @@ namespace todo_API.Controllers
                     throw new InvalidOperationException($"Task de ID [{IdTask}] não pode ser encontrada.");
                 }
 
-                return Ok(_context.Task.Remove(taskBanco));
+                _context.Task.Remove(taskBanco);
+                _context.SaveChanges();
 
+                return NoContent();
             }
             catch (Exception ex)
             {

@@ -2,12 +2,8 @@
 
 namespace todo_API.Models
 {
-    public class Contexto : DbContext
+    public class Contexto(DbContextOptions<Contexto> options) : DbContext(options)
     {
-        public Contexto( DbContextOptions<Contexto> options): base(options) 
-        { 
-        }
-
         public DbSet<Task> Task { get; set; }
     }
 }
