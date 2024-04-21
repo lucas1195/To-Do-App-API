@@ -2,10 +2,10 @@
 {
     public class TaskDTO
     {
-        public int IdTask { get; set; }
-        public string TituloTask { get; set; }
+        public int? IdTask { get; set; }
+        public string? TituloTask { get; set; }
         public string? DescricaoTask { get; set; }
-        public DateTime DataVencimento { get; set; }
-        public int Prioridade { get; set; }
+        public DateTime? DataVencimento { get; set; }
+        public int? Prioridade { get; set; }
     }
 }

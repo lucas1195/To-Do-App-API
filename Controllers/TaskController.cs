@@ -86,8 +86,8 @@ namespace todo_API.Controllers
                     DescricaoTask = taskParametros.DescricaoTask,
                     DataVencimento = taskParametros.DataVencimento,
                     Prioridade = taskParametros.Prioridade,
-                    DataInicio = new DateTime()
-
+                    DataInicio = DateTime.Now,
+                    IsCompleted = false
                 };
 
                 _context.Task.Add(novaTask);

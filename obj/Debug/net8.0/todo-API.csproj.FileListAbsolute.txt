@@ -135,3 +135,4 @@ C:\Cursos\Vue 3\todo-API\todo-API\obj\Debug\net8.0\todo-API.pdb
 C:\Cursos\Vue 3\todo-API\todo-API\obj\Debug\net8.0\todo-API.genruntimeconfig.cache
 C:\Cursos\Vue 3\todo-API\todo-API\obj\Debug\net8.0\ref\todo-API.dll
 C:\Cursos\Vue 3\todo-API\todo-API\bin\Debug\net8.0\EntityFramework.Exceptions.Common.dll
+C:\Cursos\Vue 3\todo-API\todo-API\obj\Debug\net8.0\todo-API.sourcelink.json
