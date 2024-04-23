@@ -8,14 +8,9 @@ namespace todo_API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TaskController : ControllerBase
+    public class TaskController(Contexto context) : ControllerBase
     {
-        private readonly Contexto _context;
-
-        public TaskController(Contexto context)
-        {
-            _context = context;
-        }
+        private readonly Contexto _context = context;
 
         [HttpGet("GetAll")]
         public IEnumerable<Models.Task> GetAll()
