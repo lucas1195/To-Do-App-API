@@ -8,7 +8,9 @@ namespace todo_API.Models
     {
         [Key]
         public int IdTask { get; set; }
+        [StringLength(100)]
         public string? TituloTask { get; set; }
+        [StringLength(200)]
         public string? DescricaoTask { get; set; }
         public DateTime? DataVencimento { get; set; }
         public DateTime? DataInicio { get; set; }
