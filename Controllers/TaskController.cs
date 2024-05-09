@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Net;
+using System.Threading.Tasks;
 using todo_API.DTOs;
 using todo_API.Models;
 
@@ -96,6 +97,42 @@ namespace todo_API.Controllers
             catch (Exception ex)
             {
                 throw new Exception($"Ocorreu um erro ao inserir a nova Task. {ex.Message}");
+            }
+
+        }
+
+        [HttpPatch("UpdateStatusTask/{IdTask}")]
+        public ActionResult UpdateStatusTask([FromRoute] int IdTask)
+        {
+            try
+            {
+                var taskBanco = _context.Task.FirstOrDefault(x => x.IdTask == IdTask);
+
+                if(taskBanco != null)
+                {
+                    if (taskBanco.IsCompleted == true)
+                    {
+                        taskBanco.IsCompleted = false;
+                    }
+                    else
+                    {
+                        taskBanco.IsCompleted = true;
+                    }
+
+                    _context.Task.Update(taskBanco);
+                    _context.SaveChanges();
+
+                    return Ok(taskBanco);
+                }
+                else
+                {
+                    return NotFound($"Tarefa com Id {IdTask} não encontrada.");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Ocorreu um erro ao atualizar Status. {ex.Message}");
             }
 
         }
